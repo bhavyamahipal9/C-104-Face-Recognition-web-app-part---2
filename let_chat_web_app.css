@@ -1,0 +1,44 @@
+#title {
+    font-family: 'Dancing Script', cursive;
+}
+
+body {
+    background-size: cover;
+    position: center;
+}
+
+#logo {
+    width: 100px;
+    border-radius: 90px;
+    margin-left: 185px;
+}
+
+#user_name {
+    color: red;
+    background-color: yellow;
+    margin-left: 155.5px;
+}
+
+#login {
+    color: red;
+    background-color: yellow;
+    margin-left: 218px;
+}
+
+#main {
+    float: left;
+    margin-left: 200px;
+    margin-top: 200px;
+    color:white;
+}
+
+#login_title {
+    margin-left: 125px;
+}
+
+#login_page_image {
+    width: 300px;
+    margin-left: 300px;
+    float: left;
+    margin-top: 200px;
+}
