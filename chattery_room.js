@@ -12,7 +12,7 @@ firebase.initializeApp(firebaseConfig);
 
 function welcome(){
 user_name = localStorage.getItem("user_name");
-document.getElementById("welcome_message").innerHTML = "Welcome " + user_name + "!";
+document.getElementById("welcome_message").innerHTML = "Welcome! " + user_name;
 }
 
 function add_room(){
