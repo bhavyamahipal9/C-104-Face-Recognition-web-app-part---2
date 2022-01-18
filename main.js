@@ -1,18 +1,38 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyCkifblePQMiC1RciLYhBuw4t329JUF1k4",
-    authDomain: "bhavya-yarkvw.firebaseapp.com",
-    databaseURL: "https://bhavya-yarkvw.firebaseio.com",
-    projectId: "bhavya-yarkvw",
-    storageBucket: "bhavya-yarkvw.appspot.com",
-    messagingSenderId: "341105908819",
-    appId: "1:341105908819:web:9d4cd2eaa7fecba2597aa6"
-  };
+Webcam.set({
+    width:350,
+    height:350,
+    image_format:'png',
+    image_quality:90
+});
 
-firebase.initializeApp(firebaseConfig);
+camera = document.getElementById("camera");
+Webcam.attach('#camera');
 
-function add_user(){
-    user_name = document.getElementById("user_name").value;
-    localStorage.setItem("user_name", user_name);
-    console.log("user name" + user_name);
-    window.location = "chattery_room.html";
+function capture_image(){
+    Webcam.snap(function(data_uri){
+        document.getElementById("result").innerHTML = '<img id="capture_image" src="'+data_uri+'">';
+    })
+}
+
+console.log('ml5.version',ml5.version);
+classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/Xk2eOnEJw/model.json',modelLoaded);
+
+function modelLoaded(){
+    console.log("Model has been Loaded!");
+}
+
+function check(){
+img = document.getElementById("capture_image");
+classifier.classify(img, gotResult);
+}
+
+function gotResult(error,results){
+    if(error){
+        console.error(error);
+    }
+    else{
+        console.log(results);
+        document.getElementById("result_object_name").innerHTML = results[0].label;
+        document.getElementById("result_object_accuracy").innerHTML = results[0].confidence.toFixed(3);
+    }
 }

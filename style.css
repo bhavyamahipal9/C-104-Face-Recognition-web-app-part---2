@@ -1,22 +1,19 @@
 body{
-    background-repeat: no-repeat;
-    background-size: 1550px 725px;
-}
-
-#headder{
-    margin-top: 150px;
     color: white;
+    background-color: red;
 }
 
-#icon{
-    width: 75px;
+.heading{
+    width: 80%;
+    font-size: 22px;
 }
 
-#logo{
-    width: 100px;
+#camera{
+    border: 2px black;
+    width: 350px;
+    height: 300px;
 }
 
-#main{
-    margin-left: 500px;
-    color: white;
+.name_of_object, #result_object_name{
+    color: yellow;
 }

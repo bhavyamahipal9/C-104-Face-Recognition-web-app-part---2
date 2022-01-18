@@ -1,46 +1,52 @@
 <html>
-    <head>
-        <title>
-            Let's Chat Web App
-        </title>
+  <head>
+    <title>Face recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 
-        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+   <link rel="stylesheet" href="style.css">
+  
+  </head>
 
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="main.js"></script>
-    </head>
-    <body background="Background image.jpg">
-        <center>
-            <h1 id="headder">
-                Let's Chat Web App
-                <sup>
-                    <img id="icon" src="chat icon.jpg">
-                </sup>
-            </h1>
-            <div id="main" class="col-lg-4 col-md-6 col-sm-6 col-xs-11 login_div">
-                <img src="logo.jpeg" id="logo">
-                <h3>
-                    Know What is Happening Around The world by chating with others
-                </h3>
-                <h4>
-                    Join Chattery Today
-                </h4>
-                <div class="form-group">
-                    <label>
-                        User Name: 
-                    </label>
-                    <input type="text" id="user_name" class="form-control" placeholder="User Name">
-                </div>
-                <button onclick="add_user()" id="login_button" class="btn btn-primary">Log in</button>
-                <br>
-                <br>
-            </div>
-        </center>
-    </body>
+  <body>
+  <div class="container">
+    
+    <center>
+
+      <h3>Face Recognizer web App</h3>
+
+      <br><br>
+
+      <p style="font-size: 22px;">Model is trained to identify the following faces: </p>
+
+      <b class="name_of_objects">
+        Me
+        <hr>
+        My Brother
+        <hr>
+        My Father
+        <hr>
+        My Mother
+        <hr>
+      </b>
+      <label>Webcam View - </label>
+      <div id="camera"></div>
+      <br><br>
+      <div id="result"></div>
+      <br><br>
+      <button id="take snapshot" class="btn btn-warning" onclick="capture_image()">Capture Image</button>
+      <br><br>
+      <button id="identify" class="btn btn-success" onclick="check()">Identify Face</button>
+      <br><br>
+      <p style="font-size: 22px;">Object : <span id="result_object_name"></span> </p>
+      <p style="font-size: 22px;">Accuracy : <span id="result_object_accuracy"></span> </p>
+    </center>
+  </div>
+<script src="main.js"></script>
+  </body>
 </html>
